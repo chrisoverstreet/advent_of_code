@@ -1,11 +1,7 @@
-// import { countDepthMeasurementIncreases } from './day1/countDepthMeasurementIncreases';
-import { countAvgDepthMeasurementIncreases } from './day1/countAvgDepthMeasurementIncreases';
+import { calculatePositionAfterCourse } from './day2/calculatePositionAfterCourse';
 
 (async function run() {
-  const [, , measurementsSrc] = process.argv;
-  // const increasesCount = await countDepthMeasurementIncreases(measurementsSrc);
-  const increasesCount = await countAvgDepthMeasurementIncreases(
-    measurementsSrc,
-  );
-  console.log('increases count: ', increasesCount);
+  const [, , src] = process.argv;
+  const { horizontalPosition, depth } = await calculatePositionAfterCourse(src);
+  console.log(horizontalPosition, '*', depth, '=', horizontalPosition * depth);
 })();
