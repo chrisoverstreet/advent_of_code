@@ -13,6 +13,7 @@ export async function calculatePositionAfterCourse(
 
   let horizontalPosition = 0;
   let depth = 0;
+  let aim = 0;
 
   for await (const line of readlineInterface) {
     const [command, amount] = line.split(' ');
@@ -20,12 +21,13 @@ export async function calculatePositionAfterCourse(
     switch (command) {
       case 'forward':
         horizontalPosition += +amount;
+        depth += aim * +amount;
         break;
       case 'down':
-        depth += +amount;
+        aim += +amount;
         break;
       case 'up':
-        depth -= +amount;
+        aim -= +amount;
         break;
       default:
         throw new Error(`invalid command: ${command}`);

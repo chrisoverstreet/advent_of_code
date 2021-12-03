@@ -7,6 +7,6 @@ describe('calculatePositionAfterCourse', () => {
     );
 
     expect(horizontalPosition).toBe(15);
-    expect(depth).toBe(10);
+    expect(depth).toBe(60);
   });
 });
